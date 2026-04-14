@@ -18,6 +18,13 @@ Going forward, **LazyVim** requires **Neovim** `>= 0.11.2`, and drops support fo
 - enabled [blink.cmp](https://github.com/saghen/blink.cmp) **cmdline** completions
 - use **LSP** based folding when available (disable with `nvim-lspconfig.folds.enabled = false`)
 
+### Keymaps
+
+- `<leader>hq` to show hunks as Quickfix [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- `<leader>hQ` to show hunks as Quickfix (all files) [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- `<leader>tb` to toggle current line blame [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- `<leader>tw` to toggle word diff [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+
 ## 14.x
 
 Big new release with a lot of changes and improvements!

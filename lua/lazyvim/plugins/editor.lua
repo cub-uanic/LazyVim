@@ -72,6 +72,7 @@ return {
           { "<leader>f", group = "file/find" },
           { "<leader>g", group = "git" },
           { "<leader>gh", group = "hunks" },
+          { "<leader>gt", group = "toggle" },
           { "<leader>q", group = "quit/session" },
           { "<leader>s", group = "search" },
           { "<leader>u", group = "ui" },
@@ -183,6 +184,10 @@ return {
         map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map("n", "<leader>ghq", gs.setqflist, "Show hunks as Quickfix")
+        map("n", "<leader>ghQ", function() gs.setqflist("all") end, "Show hunks as Quickfix (all)")
+        map("n", "<leader>gtb", gs.toggle_current_line_blame, "Toggle current line blame")
+        map("n", "<leader>gtw", gs.toggle_word_diff, "Toggle word diff")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
