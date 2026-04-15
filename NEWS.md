@@ -24,6 +24,7 @@ Going forward, **LazyVim** requires **Neovim** `>= 0.11.2`, and drops support fo
 - `<leader>hQ` to show hunks as Quickfix (all files) [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - `<leader>tb` to toggle current line blame [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - `<leader>tw` to toggle word diff [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- `<leader>rI` to inline function [refactoring](https://github.com/ThePrimeagen/refactoring.nvim)
 
 ## 14.x
 
