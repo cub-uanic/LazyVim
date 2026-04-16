@@ -72,7 +72,6 @@ return {
           { "<leader>f", group = "file/find" },
           { "<leader>g", group = "git" },
           { "<leader>gh", group = "hunks" },
-          { "<leader>gt", group = "toggle" },
           { "<leader>q", group = "quit/session" },
           { "<leader>s", group = "search" },
           { "<leader>u", group = "ui" },
@@ -184,11 +183,10 @@ return {
         map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
-        map("n", "<leader>ghq", gs.setqflist, "Show hunks as Quickfix")
-        map("n", "<leader>ghQ", function() gs.setqflist("all") end, "Show hunks as Quickfix (all)")
-        map("n", "<leader>gtb", gs.toggle_current_line_blame, "Toggle current line blame")
-        map("n", "<leader>gtw", gs.toggle_word_diff, "Toggle word diff")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+
+        map("n", "<leader>xh", gs.setqflist, "Git hunks (file)")
+        map("n", "<leader>xH", function() gs.setqflist("all") end, "Git hunks (all)")
       end,
     },
   },
@@ -204,6 +202,38 @@ return {
           require("gitsigns").toggle_signs(state)
         end,
       }):map("<leader>uG")
+      Snacks.toggle({
+        name = "Git Line Blame",
+        get = function()
+          return require("gitsigns.config").config.current_line_blame
+        end,
+        set = function(state)
+          require("gitsigns").toggle_current_line_blame(state)
+        end,
+      }):map("<leader>uB")
+      Snacks.toggle({
+        name = "Git Word Diff",
+        get = function()
+          return require("gitsigns.config").config.word_diff
+        end,
+        set = function(state)
+          require("gitsigns").toggle_word_diff(state)
+        end,
+      }):map("<leader>uW")
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function()
+      Snacks.toggle({
+        name = "LSP Codelens",
+        get = function()
+          return vim.lsp.codelens.is_enabled()
+        end,
+        set = function(state)
+          vim.lsp.codelens.enable(state)
+        end,
+      }):map("<leader>uH")
     end,
   },
 
