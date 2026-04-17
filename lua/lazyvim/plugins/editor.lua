@@ -222,20 +222,6 @@ return {
       }):map("<leader>uW")
     end,
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = function()
-      Snacks.toggle({
-        name = "LSP Codelens",
-        get = function()
-          return vim.lsp.codelens.is_enabled()
-        end,
-        set = function(state)
-          vim.lsp.codelens.enable(state)
-        end,
-      }):map("<leader>uH")
-    end,
-  },
 
   -- better diagnostics list and others
   {
